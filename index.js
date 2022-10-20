@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+
 // Require the necessary discord.js classes
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
@@ -24,8 +25,6 @@ for (const file of commandFiles) {
 	}
 }
 
-// console.log(client.commands);
-
 // Handling events (on, ready) dynamically
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -42,3 +41,4 @@ for (const file of eventFiles) {
 
 // Log in to Discord with your client's token
 client.login(token);
+
