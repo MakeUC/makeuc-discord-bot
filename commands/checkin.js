@@ -25,7 +25,7 @@ module.exports = {
 					const registrant = await db.collection("registrant").findOne({email: email});
 					
 					if(!registrant){
-						reply = `I could not find a registration with the email: \`${email}\`. Please make sure that the email you entered is correct, and that you have verified your email.`;
+						reply = `I could not find a registration with the email: \`${email}\`. Please make sure that the email you entered is correct!`;
 						await interaction.reply(reply);
 					}
 					if(registrant.isCheckedIn){
@@ -52,8 +52,8 @@ module.exports = {
 				} catch (err) {
 					console.log(err.stack);
 				}
-				client.close(); // Close db connection
-				console.log('Connection closed.');
+				// client.close(); // Close db connection
+				// console.log('Connection closed.');
 			})();
 		}
 		// interaction.user is the object representing the User who ran the command
