@@ -44,6 +44,8 @@ module.exports = {
 								checkedInAt: new Date(),	
 							}
 						});
+						// add role to the member
+						await interaction.member.roles.add('1031768007673925673')
 
 						reply = `Hello ${registrant.fullName}, you are successfully checked in, Welcome to MakeUC!`
 						await interaction.reply(reply);

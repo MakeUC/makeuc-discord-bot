@@ -1,16 +1,15 @@
 const { SlashCommandBuilder } = require('discord.js');
 const client = require('../database');
+const { executiveRole } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('stats')
 		.setDescription('Lists statistics for MakeUC'),
 	async execute(interaction) {
-        console.log(interaction.member._roles.includes('842995030876487680'));
-        // 842995030876487680
 		// interaction.user is the object representing the User who ran the command
 		// interaction.member is the GuildMember object, which represents the user in the specific guild
-        if(interaction.member._roles.includes('842995030876487680')){
+        if(interaction.member._roles.includes(executiveRole)){
             (async function() {
                 try {
                     const db = client.db("makeuc");

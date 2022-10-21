@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { checkin } = require('../config.json');
+const { checkin, executiveRole } = require('../config.json');
 const client = require('../database');
 
 module.exports = {
@@ -15,11 +15,11 @@ module.exports = {
         console.log(email);
         let reply = '';
         
-        if(checkin === "closed"){
+        if(checkin === "close"){
             reply = "Checkin is not open yet! Please wait until checkin starts. I appreciate your patience!"
         }
         if(checkin === "open"){
-            if(interaction.member._roles.includes('842995030876487680')){
+            if(interaction.member._roles.includes(executiveRole)){
                 (async function() {
                     try {
                         const db = client.db("makeuc");
