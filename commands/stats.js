@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const client = require('../database');
-const { executiveRole } = require('../config.json');
+// const { executiveRole } = require('../config.json');
+
+const executiveRole = process.env.executiveRole;
 
 module.exports = {
 	data: new SlashCommandBuilder()

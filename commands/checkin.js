@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { checkin } = require('../config.json');
+// const { checkin } = require('../config.json');
 const client = require('../database');
+
+const checkin = process.env.checkin;
 
 module.exports = {
 	data: new SlashCommandBuilder()
